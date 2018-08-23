@@ -1,13 +1,13 @@
 # Настройки
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json
-updater = Updater(token='697037318:AAFAEpSdj94ZbTwMeMuiOfPEVQKgQdUx06g') # Токен API к Telegram
+updater = Updater(token='') # Токен API к Telegram
 dispatcher = updater.dispatcher
 # Обработка команд
 def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Привет, давай пообщаемся?')
 def textMessage(bot, update):
-    request = apiai.ApiAI('8ba940df3c6a4abc9b133c71b9fcd535').text_request() # Токен API к Dialogflow
+    request = apiai.ApiAI('').text_request() # Токен API к Dialogflow
     request.lang = 'ru' # На каком языке будет послан запрос
     request.session_id = 'BatlabAIBot' # ID Сессии диалога (нужно, чтобы потом учить бота)
     request.query = update.message.text # Посылаем запрос к ИИ с сообщением от юзера
